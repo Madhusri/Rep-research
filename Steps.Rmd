@@ -21,6 +21,7 @@ steps_by_day_i <- aggregate(steps ~ date, data, sum)
 hist(steps_by_day_i$steps, main = paste("Total Steps Each Day"), col="blue", xlab="Number of Steps")
 rmean <- mean(steps_by_day_i$steps)
 rmedian <- median(steps_by_day_i$steps)
+
 ```
 The  mean  is  r rmean  and the  median  is  r rmedian .
 
@@ -28,6 +29,7 @@ What is the average daily activity pattern?
 .Calculate average steps for each interval for all days. 
 .Plot the Average Number Steps per Day by Interval. 
 .Find interval with most average steps. 
+
 
 ```{r}
 steps_by_interval <- aggregate(steps ~ interval, data, mean)
@@ -78,7 +80,7 @@ Calculate total difference.
 total_diff <- sum(steps_by_day_i$steps) - sum(steps_by_day$steps)
 end.rcode-->
 
-.The imputed data mean is  r rmean.i  
+#.The imputed data mean is  r rmean.i  
 .The imputed data median is  r rmedian.i  
 .The difference between the non-imputed mean and imputed mean is  r mean_diff  
 .The difference between the non-imputed mean and imputed mean is  r med_diff  
@@ -98,4 +100,3 @@ library(lattice)
 xyplot(steps_by_interval_i$steps ~ steps_by_interval_i$interval|steps_by_interval_i$dow, main="Average Steps per Day by Interval",xlab="Interval", ylab="Steps",layout=c(1,2), type="l")
 
 ```
-
